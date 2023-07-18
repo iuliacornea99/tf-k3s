@@ -111,6 +111,10 @@ resource "openstack_compute_instance_v2" "node" {
   }
 }
 
+output "user_data" {
+  value = openstack_compute_instance_v2.node.user_data
+}
+
 resource "openstack_networking_port_v2" "mgmt" {
   name                  = var.name
   network_id            = var.network_id
